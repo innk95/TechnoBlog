@@ -1,0 +1,64 @@
+#contacts {
+    background-image: url('../images/code.png');
+    color: white;
+    background-size: 100%;
+    padding-bottom: 30px;
+}
+
+#my_name{
+    font-size:70px;
+}
+
+#my_speech{
+    font-size: 20px;
+}
+
+#my_name, #my_prof, #my_speech{
+    text-align: center;
+}
+#find_job{
+    margin-right: 50px;
+}
+
+/* делаем цвет для каждой иконки соц.сетец */
+.social {
+    position: relative;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 3px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+
+}
+#social_icons{
+    text-align: center;
+}
+
+#instagram {
+   border: 4px solid #e0515f;
+}
+#instagram:hover, #vk:hover, #github:hover, #telegram:hover, #facebook:hover {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+
+}
+
+#vk {
+    border: 4px solid #2d81c9;
+}
+
+
+#github {
+    border: 4px solid #3e77bf;
+}
+
+#telegram {
+    border: 4px solid #61a8de
+}
+
+#facebook {
+    border: 4px solid #475893;
+}
