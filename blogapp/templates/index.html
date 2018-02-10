@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block head %}
+<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+{% endblock %}
 {% block body %}
 {% load static %}
 <div class="row">
@@ -10,15 +13,13 @@
         <p id="my_speech">Добро пожаловать в мое виртуальное портфолио. Здесь я выставляю свои классные проекты,
             которыми увлекался, и также немного расскажу о своей жизни. </p>
         <div class="col-md-12" id="social_icons">
-            <a class="social" id='instagram' href="#"><img src="{% static 'images/instagram.png' %}"> Instagram</a>
-            <a class="social" id='vk' href="#"><img src="{% static 'images/vk.png' %}"> VK</a>
-            <a class="social" id='github' href="#"><img src="{% static 'images/github.png' %}"> Github</a>
-            <a class="social" id='telegram' href="#"><img src="{% static 'images/telegram.png' %}"> Telergam</a>
-            <a class="social" id='facebook' href="#"><img src="{% static 'images/facebook.png' %}"> Facebook</a>
+            <a class="social" id='instagram' href="https://www.instagram.com/innk95/"><img src="{% static 'images/instagram.png' %}"> Instagram</a>
+            <a class="social" id='vk' href="https://vk.com/innk95"><img src="{% static 'images/vk.png' %}"> VK</a>
+            <a class="social" id='github' href="https://github.com/innk95"><img src="{% static 'images/github.png' %}"> Github</a>
+            <a class="social" id='telegram' href="https://t.me/petrovvadimand"><img src="{% static 'images/telegram.png' %}"> Telergam</a>
+            <a class="social" id='facebook' href="https://www.facebook.com/"><img src="{% static 'images/facebook.png' %}"> Facebook</a>
         </div>
     </div>
 </div>
-
-
 
 {% endblock %}

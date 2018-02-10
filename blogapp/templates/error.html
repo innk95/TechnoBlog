@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+<div class="row">
+    <div class="col-sm-12 col-md-4"></div>
+        <div class="col-sm-12 col-md-4">
+        <div id="error_form">
+            <h4>Что-то пошло не так!</h4>
+            <p>Неправильно введен логин или пароль</p>
+            <p>Попробуйте ещё раз!</p>
+            <p>(пароль должен состоять из цифр и символов верхнего и нижниго регистра.
+                Не меньше 8 символов)</p>
+            <a class="btn btn-info" href="../reg">Попробовать снова</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

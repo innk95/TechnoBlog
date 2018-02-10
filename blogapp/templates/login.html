@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="row">
+    <div class="col-sm-12 col-md-4"></div>
+    <div class="col-sm-12 col-md-4">
+<form method="post" id="reg_form">
+    <h2>Login In!</h2>
+    {% csrf_token %}
+    {% for field in form %}
+    {{field.label}}
+    <p>{{field}}</p>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary my_btns"><a>Send</a></button>
+    <br>
+    <br>
+    <h6>Ещё не зарегестрирован?</h6>
+    <a class="btn btn-success my_btns" href="../reg">Sign Up</a>
+</form>
+</div>
+</div>
+
+{% endblock %}

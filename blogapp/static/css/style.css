@@ -6,26 +6,29 @@
 }
 
 #my_name{
-    font-size:70px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 70px;
 }
 
 #my_speech{
     font-size: 20px;
 }
 
-#my_name, #my_prof, #my_speech{
+#my_name, #my_prof, #my_speech, #footer{
     text-align: center;
 }
 #find_job{
     margin-right: 50px;
 }
 
+
+
 /* делаем цвет для каждой иконки соц.сетец */
 .social {
     position: relative;
     display: inline-block;
     border-radius: 10px;
-    padding: 15px;
+    padding: 20px;
     margin: 3px;
     text-align: center;
     color: white;
@@ -61,4 +64,24 @@
 
 #facebook {
     border: 4px solid #475893;
+}
+
+/* форма регистрации и форма ошибки */
+#reg_form, #error_form{
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+#reg_form{
+    padding: 20px;
+    padding-left: 26%;
+}
+
+#error_form{
+    padding:20px;
+    text-align: center;
+}
+
+.my_btns{
+    width: 100px;
 }
