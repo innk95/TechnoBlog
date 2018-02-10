@@ -13,7 +13,7 @@ class Cat(models.Model):
      name = models.CharField(max_length=40)
      years = models.IntegerField()
      breed = models.CharField(max_length=50)
-     img = models.ImageField(default='static/images.default.jpg')
+     img = models.CharField(max_length=400, default='https://ptzgovorit.ru/sites/default/files/styles/885x100proc/public/insert_images/-gle7n-jy8u.jpg?itok=i5KpNzAT')
 
 
 

@@ -4,29 +4,44 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.decorators import login_required
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .serializers import CatsSerializer
+from .models import Cat
 
 def index(request):
     return render(request, 'index.html')
 
 def register(request):
-    print('ok')
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('/login')
         else:
-            return redirect('/error')
+            return render(request, 'error.html')
     else:
         form = UserCreationForm()
         context = {'form': form}
         return render(request, 'reg.html', context)
 
 def cats(request):
-    return HttpResponse('ke')
+    return render(request, 'cats.html')
 
 def culc(request):
     return render(request, 'culc.html')
+
+def bot(request):
+    return render(request, 'bot.html')
+
+def chat(request):
+    return render(request, 'chat.html')
+
+class CatsView(APIView):
+    def get(self, request):
+        cats = Cat.objects.all()
+        serializer = CatsSerializer(cats, many=True)
+        return Response(serializer.data)
 
 @login_required
 def signUp_error(request):

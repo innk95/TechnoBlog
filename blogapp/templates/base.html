@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+     {% block head %}{% endblock %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="{% static 'js/script.js' %}"></script>
@@ -15,7 +16,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
- {% block head %}{% endblock %}
 
 </head>
 <body>
@@ -24,10 +24,18 @@
         <img src="{% static 'images/blogger.png' %}">
         <a class="navbar-brand" href="{% url 'blogapp:home' %}">Блог</a>
         <a class="navbar-brand" href="{% url 'blogapp:cats' %}">Котята</a>
-        <a class="navbar-brand" href="{% url 'blogapp:culc' %}">Калькулятор</a>
-        <a class="navbar-brand" href="{% url 'blogapp:culc' %}">API</a>
-        <a class="navbar-brand" href="{% url 'blogapp:culc' %}">Чат</a>
-        <a class="navbar-brand" href="{% url 'blogapp:culc' %}">Бот</a>
+
+        <div class="dropdown" id="dropmenu">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Мои проекты
+            </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item well" href="{% url 'blogapp:culc' %}">Калькулятор</a>
+            <a class="dropdown-item" href="{% url 'blogapp:api' %}">API</a>
+            <a class="dropdown-item" href="{% url 'blogapp:chat' %}">Чат</a>
+            <a class="dropdown-item" href="{% url 'blogapp:bot' %}">Бот</a>
+        </div>
+        </div>
     </div>
     <a class="btn btn-info" id="find_job">Ищу работу!</a>
     <div>
@@ -38,7 +46,6 @@
         <a class="badge badge-danger" href="{% url 'blogapp:logout' %}">Log Out</a>
         {% endif %}
     </div>
-
 </nav>
 
 {% block body %}

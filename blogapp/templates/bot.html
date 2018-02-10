@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+<br>
+<p> Мой первый и пока-что единственный бот для мониторинга сеансов в одном из кинотеатров города Чебоксары. Хостинг закончился, так что он работает только на локальной машине. Здесь представлена его работа. За кулисами он парсит сайт этого кинотеатра и записывает данные в формате json.
+Через Selenium подгружает скриншот </p>
+Код программы можно увидеть на моем github <a class="badge badge-info" href="https://github.com/innk95/TelegramBot/">Посмотреть код</a>.
+<br>
+<a class='btn btn-success' href="{% url 'blogapp:home' %}">Вернуться назад</a>
+<p><img id='bot_img' src="{% static 'images/bot.png' %}"></p>
+
+{% endblock %}

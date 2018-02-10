@@ -18,9 +18,18 @@
     text-align: center;
 }
 #find_job{
-    margin-right: 50px;
+    margin-right: 20%;
 }
 
+#dropmenu{
+    display: inline;
+}
+
+#bot_img{
+    width: 60%;
+    margin-top: 5px;
+    margin-left: 20%;
+}
 
 
 /* делаем цвет для каждой иконки соц.сетец */
@@ -67,7 +76,7 @@
 }
 
 /* форма регистрации и форма ошибки */
-#reg_form, #error_form{
+#reg_form, #error_form, .cat_form{
     border: 2px solid black;
     border-radius: 10px;
     margin-top: 20px;
@@ -84,4 +93,15 @@
 
 .my_btns{
     width: 100px;
+}
+
+/*Редактируем формы котов*/
+.cat_img{
+    max-width: 250px;
+    display: block;
+    margin: 0 auto;
+}
+.cat_info{
+    padding-left: 20px;
+    padding-bottom: 20px;
 }

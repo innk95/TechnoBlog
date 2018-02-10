@@ -1,0 +1,67 @@
+<head>
+	{% load static %}
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/chat.css'%}">
+	<script type="text/javascript" src="{% static 'js/jquery-2.2.3.min.js'%}"></script>
+	<script type="text/javascript" src="{% static 'js/chat.js'%}"></script>
+	<script type="text/javascript" src="{% static 'js/scroll.js'%}"></script>
+
+
+	<script type="text/javascript" src="{% static 'js/jquery.slimscroll.min.js'%}"></script>
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Cuprum:400,400italic' rel='stylesheet' type='text/css'>
+
+
+</head>
+<a class="btn btn-success" href="{% url 'blogapp:home' %}">Вернуться назад</a>
+<body>
+<div class="login">
+    <div class="chat_icon">
+    	<div class="poloska1">
+    	</div>
+    	<div class="poloska2">
+    	</div>
+    	<div class="icon_triygol">
+    	</div>
+    </div>
+
+
+	<div id="triangle-bottomleft">
+	</div>
+	<h1>chat</h1>
+	<div class="account">
+		<p>Введите имя</p>
+		<input type="text" id="name_account">
+		<div id="get_started" value="Get started" onClick="start()">
+			<p> Get started </p>
+		</div>
+	</div>
+	<div class="black_square">
+	</div>
+</div>
+
+<div class="chat_div" style="display: none" >
+	<div id="triangle-bottomleft">
+	</div>
+	<div class='post_chat'>
+		<input type="text" id="post_msg">
+		<div id="post_button" ><i class="icon fa-send" aria-hidden="true"></i></div>
+	</div>
+	<div class="name_chat">
+		<input type="button" value="back" onClick="backToStart()">
+
+			</div>
+	<div id='chat_list' >
+		<div id='chat_list_in' >
+
+		<div class="block_msg left_msg" style="display: none">
+					</div>
+		<div class="block_msg right_msg" style="display: none">
+		</div>
+		</div>
+	</div>
+
+
+</div>
+</body>
