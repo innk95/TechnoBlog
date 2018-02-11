@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.decorators import login_required
-from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.response import Response
 from .serializers import CatsSerializer
 from .models import Cat
@@ -37,11 +37,11 @@ def bot(request):
 def chat(request):
     return render(request, 'chat.html')
 
-class CatsView(APIView):
-    def get(self, request):
-        cats = Cat.objects.all()
-        serializer = CatsSerializer(cats, many=True)
-        return Response(serializer.data)
+class CatsViewSet(viewsets.ModelViewSet):
+    queryset = Cat.objects.all()
+    serializer_class = CatsSerializer
+
+
 
 @login_required
 def signUp_error(request):
