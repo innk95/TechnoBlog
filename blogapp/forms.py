@@ -32,5 +32,20 @@ class RegistrationForm(UserCreationForm):
 
             return user
 
+class CatCreationForm(forms.ModelForm):
+    class Meta:
+        model = Cat
+        fields = {'name',
+                  'years',
+                  'breed',
+                  'img'}
+
+
+        # widgets = {
+        #     'name': forms.TextInput(attrs={'placeholder': 'Новое имя'}),
+        #     'breed': forms.TextInput(attrs={'placeholder': 'Новая порода'}),
+        #     'img': forms.TextInput(attrs={'placeholder': 'URL'}),
+        #
+        # }
 
 

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="row">
+        <div class="col-sm-12 col-md-4"></div>
+        <div class="col-md-4 col-sm-12">
+                <div class="cat_form">
+                    <img class="cat_img" src="{{cat.img}}">
+                    <br>
+                    <form method="POST" class="cat_info">
+                        {% csrf_token %}
+
+                       <p> {{ form.name }} {{cat.name}}</p>
+                       <p>{{ form.years }}  Возраст: {{cat.years}}</p>
+                       <p> {{ form.breed }} {{cat.breed}} </p>
+                       <p> {{ form.img }}</p>
+
+                        <button type="submit">Сохранить</button>
+                        <a href='/cats' class="btn btn-danger">Отменить</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

@@ -8,6 +8,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from .serializers import CatsSerializer
 from .models import Cat
+from .forms import CatCreationForm
 
 def index(request):
     return render(request, 'index.html')
@@ -26,7 +27,12 @@ def register(request):
         return render(request, 'reg.html', context)
 
 def cats(request):
-    return render(request, 'cats.html')
+    if request.method == 'GET':
+        current_user = request.user
+        print(current_user)
+        cats = Cat.objects.filter(user=current_user);
+        return render(request, 'cats.html', {'cats':cats})
+
 
 def culc(request):
     return render(request, 'culc.html')
@@ -36,6 +42,33 @@ def bot(request):
 
 def chat(request):
     return render(request, 'chat.html')
+
+def delete(request, cat_id):
+    try:
+        current_user = request.user
+        current_cat = Cat.objects.get(id=cat_id)
+        if current_user == current_cat.user:
+            current_cat.delete()
+            return redirect('/cats')
+        return redirect('/cats')
+    except:
+        redirect('/cats')
+
+def edit(request, cat_id=''):
+    current_user = request.user
+    current_cat = Cat.objects.get(id=cat_id)
+    if not request.method == 'POST':
+        form = CatCreationForm()
+        if current_user == current_cat.user:
+            return render(request, 'edit.html', {'cat': current_cat, 'form': form})
+        else:
+            return redirect('/cats')
+    else:
+        print(current_cat)
+        form = CatCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/cats')
 
 class CatsViewSet(viewsets.ModelViewSet):
     queryset = Cat.objects.all()

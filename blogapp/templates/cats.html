@@ -1,50 +1,28 @@
 {% extends 'base.html' %}
 {% block head %}
-  <!-- Angular Material Library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angular_material/0.7.0/angular-material.min.js"></script>
 {% endblock %}
 {% block body %}
-<div ng-app="CatApp" ng-controller="catController">
-    <button ng-click="addCat()">Add a cat</button>
+<div>
     <div class="container">
-    <div class="row">
-        <div class="col-md-4 col-sm-12" ng-repeat="cat in catList">
+        <div class="row">
+        {% for cat in cats %}
+        <div class="col-md-4 col-sm-12">
                 <div class="cat_form">
-                    <img class="cat_img" src="{[{cat.img}]}">
+                    <img class="cat_img" src="{{cat.img}}">
                     <br>
                     <div class="cat_info">
-                        <p><strong>Имя кота: </strong>{[{cat.name}]}</p>
-                        <p><strong>Сколько лет:  </strong>{[{cat.years}]}</p>
-                        <p><strong>Порода:  </strong>{[{cat.breed}]}</p>
-                        <button ng-click='editCat(cat)' class="btn btn-primary">Редактировать</button>
-                        <button ng-click='editCat(cat)' class="btn btn-danger">Удалить</button>
+                        <p><strong>Имя кота: </strong>{{cat.name}}</p>
+                        <p><strong>Сколько лет:  </strong>{{cat.years}}</p>
+                        <p><strong>Порода:  </strong>{{cat.breed}}</p>
+                        <a href="../edit/{{cat.id}}" class="btn btn-primary">Редактировать</a>
+                        <a href='delete/{{cat.id}}' class="btn btn-danger">Удалить</a>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </div>
 
-<div style="visibility: hidden">
-  <div class="md-dialog-container" id="editCatDialog">
-    <md-dialog>
-        <label>Имя:  <input type="text" value="{[{catObj.name}]}"> </label>
-        <label>Возраст:  <input type="text" value="{[{catObj.years}]}"></label>
-        <label>Волосатость:  <input type="text" value="{[{catObj.breed}]}"></label>
-        <label>Порода: <input type="text" value="{[{catObj.img}]}"> </label>
-        <md-dialog-actions>
-            <md-button ng-click="saveEditDialog(catObj)" class="md-primary" type="submit">Сохранить</md-button>
-            <md-button ng-click="closeDialog()" class="md-primary">Close Dialog</md-button>
-        </md-dialog-actions>
-    </md-dialog>
-  </div>
-</div>
 
 {% endblock %}
