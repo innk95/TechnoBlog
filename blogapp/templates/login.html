@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% block body %}
+
+<!--Форма авторизации -->
 <div class="row">
     <div class="col-sm-12 col-md-4"></div>
     <div class="col-sm-12 col-md-4">
 <form method="post" id="reg_form">
     <h2>Login In!</h2>
     {% csrf_token %}
-    {% for field in form %}
-    {{field.label}}
-    <p>{{field}}</p>
+    {% for field in form %} <!-- Цикл для того, чтобы-->
+    {{field.label}}         <!-- убрать text_help-->
+    <p>{{field}}</p>        <!-- Он слишком огромный -->
     {% endfor %}
     <button type="submit" class="btn btn-primary my_btns"><a>Send</a></button>
     <br>

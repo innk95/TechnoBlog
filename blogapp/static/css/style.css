@@ -1,3 +1,4 @@
+/* Верстка шапки */
 #contacts {
     background-image: url('../images/code.png');
     color: white;
@@ -17,8 +18,9 @@
 #my_name, #my_prof, #my_speech, #footer{
     text-align: center;
 }
-#find_job{
-    margin-right: 20%;
+
+#addCatForm{
+    display: none;
 }
 
 #dropmenu{
@@ -29,6 +31,13 @@
     width: 60%;
     margin-top: 5px;
     margin-left: 20%;
+}
+/* лучший класс во всем проекте */
+.divCenter{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
 }
 
 
@@ -76,11 +85,31 @@
 }
 
 /* форма регистрации и форма ошибки */
-#reg_form, #error_form, .cat_form{
+#reg_form, #error_form, .cat_form, .fb_form{
     border: 2px solid black;
     border-radius: 10px;
     margin-top: 20px;
 }
+
+.fb_form{
+    min-height:450px;
+}
+
+.fb_formItem{
+    padding-left:5px;
+}
+
+#fb_btn{
+    float:left;
+    margin-left: 35%;
+}
+
+.cat_form{
+    min-height: 405px;
+    box-shadow: 40px 30px 30px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+}
+
 #reg_form{
     padding: 20px;
     padding-left: 26%;
@@ -95,13 +124,62 @@
     width: 100px;
 }
 
+
+
 /*Редактируем формы котов*/
 .cat_img{
     max-width: 250px;
+    max-height: 200px;
     display: block;
     margin: 0 auto;
 }
 .cat_info{
     padding-left: 20px;
     padding-bottom: 20px;
+}
+
+/* Основной контент */
+#find_job {
+    font-size: 30px;
+}
+
+#aboutMyjob{
+    margin-top: 20px;
+    border-bottom-style: ridge;
+}
+
+/* Обратная связь */
+
+#feedback{
+    background: url('../images/black_fon.jpg');
+    opacity: 0.9;
+    z-index:1;
+    color:white
+}
+
+.inputForm{
+    border: none;
+    background-color: transparent;
+    border-bottom-style: ridge;
+}
+
+
+#message {
+    size: 50px;
+}
+
+/* Оформление резюме */
+#resume {
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    border-bottom-style: ridge;
+}
+
+#my_photo{
+    width: 100%;
+}
+
+#main_resume p{
+    margin-bottom: 0em;
 }

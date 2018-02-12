@@ -17,5 +17,9 @@ class Cat(models.Model):
 
 
 
-
+class Post(models.Model):
+     name = models.CharField(max_length=200)
+     email = models.CharField(max_length=200)
+     subject = models.CharField(max_length=200)
+     message= models.CharField(max_length=1500)
 

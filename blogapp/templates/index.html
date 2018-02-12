@@ -4,8 +4,9 @@
 {% endblock %}
 {% block body %}
 {% load static %}
+<!--Главное меню со ссылками на соц.страницы-->
 <div class="row">
-    <div class="col-md-12" id="contacts">
+    <div class="col-md-12" id="contacts" style="display:none">
         <br>
         <h1 id="my_name">Вадим Петров</h1>
         <br>
@@ -21,5 +22,53 @@
         </div>
     </div>
 </div>
+<!-- Старт основного блога -->
+<div class="row">
+    <div class="col-md-1 col-sm-1 col-xs-1"></div>
+    <div id="aboutMyjob" class="col-md-11 col-sm-11">
+          <a id='find_job' href="/resume">В поисках работы</a>
+    </div>
+    <div class="col-md-1 col-sm-1"></div>
+    <div class="col-md-10 col-sm-10" style="margin-top: 15px;">
+        <p>&nbsp&nbsp&nbsp&nbspВ данный момент я в поисках работы своей мечты. В основном я ориентируюсь на back-end,
+        но есть навыки и во front-end. В связке с Django я написал этот сайт и ещё несколько различных приложений.
+            Здесь во вкладке "Проекты" я выложил некоторые из своих работ, которые вы можете посмотреть.</p>
+        <p>&nbsp&nbsp&nbsp&nbspТак же вы можете перейте по ссылке на моё <a href="/resume">Резюме</a> или оставить мне сообщение.</p>
+    </div>
+    <div class="col-md-1"></div>
+    <!--  Форма обратной связи-->
+    <div class="col-md-1"></div>
+    <div class="col-md-4 ">
+        <img src="../static/images/mess.png" style="width: 40%; margin-left:50px;">
+            <form method="post" class="cat_form">
+                {% csrf_token %}
+                <h2 class="divCenter">Оставьте сообщение</h2>
+                <p class="divCenter">Ваше имя: {{form.name}}</p>
+                <p class="divCenter">Ваш email: {{form.email}}</p>
+                <p class="divCenter">Тема письма: {{form.subject}}</p>
+                <p class="divCenter"><textarea name='message' cols="40" rows='5' placeholder="Напиши сообщение">{{form.data.message}}</textarea></p>
+                <button id='fb_btn' type="submit" class="btn btn-success">Отправить</button>
+            </form>
+    </div>
+    <!-- Блок с упоминаем об API-->
+    <div class="col-md-2 col-sm-12"></div>
+    <div class="col-md-4 col-sm-12">
+        <img src="static/images/api.png" style="width:55%; margin-left: 20%;">
+        <h4 class="divCenter">Rest API</h4>
+        <p>&#8195;У этого сайта так же написан свой Rest API. И он полностью публичен!</p>
+        <p>&#8195;А зачем вообще нужен этот API здесь, спросите вы? Мобильное приложение!
+            Да-да, много мобильных приложений используют API для различных сервисов. Так что в скором времени,
+            когда я начну изучать разработку мобильных приложений, я сделаю свой проект с эти api. Вот и ссылка на
+            <a href="/api"> Rest Api</a>.</p>
+    </div>
+    <div class="col-md-4 col-sm-12"></div>
+</div>
+
+<br>
+<br>
+
+    <cite class="divCenter">© Petrov V.</cite>
+
+
 
 {% endblock %}

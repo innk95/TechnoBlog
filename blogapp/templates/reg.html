@@ -6,7 +6,7 @@
 <form method="post" id="reg_form">
     <h2>Sign up!</h2>
     {% csrf_token %}
-    {% for field in form %}
+    {% for field in form %}  <!--цикл, чтобы убрать text_help -->
     {{field.label}}
     <p>{{field}}</p>
     {% endfor %}

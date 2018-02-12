@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+<!--Здесь в основном сетка bootstrap4 -->
+<!-- Чтобы при разных разрешениях экранов -->
+<!-- Все было на своих местах-->
+<div class="container" id="main_resume">
+<div class="row">
+    <div class="col-md-12">
+        <h1 id="resume">Петров Вадим Андреевич</h1>
+    </div>
+
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+        <img id='my_photo' src="{% static 'images/me.jpg' %}">
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-3">
+                <strong>Личная информация:</strong>
+            </div>
+            <div class="col-md-8">
+                <p>Дата рождения:    16 января 1995</p>
+                <p>Семейное положение:   холост</p>
+                <p>Образование:      Высшее (Ргу Нефти и Газа)</p>
+                <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Кафедра: АСУ ТП</p>
+                <hr>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <strong>Контакты:</strong>
+            </div>
+            <div class="col-md-8">
+                <p>Email:   PetrovVadimAnd@gmail.com</p>
+                <p>Skype:   vaim2008</p>
+                <p>VK:      vk.com/innk95</p>
+                <p>Телефон: +7 999 977 66 92
+                <hr>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <strong>Языки программирования:</strong>
+            </div>
+            <div class="col-md-8">
+                <p>Python - начальный уровень (пишу различные скрипты, включая ботов)</p>
+                <p>JavaScript - начальный уровень (почти всегда использую для верстки, в основном jQuery)</p>
+                <hr>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <strong>Базы данных:</strong>
+            </div>
+            <div class="col-md-8">
+                <p>MySQL (запросы, индекс)</p>
+                <p>SQLite</p>
+                <hr>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <strong>Фреймворки:</strong>
+            </div>
+            <div class="col-md-8">
+                <p>Django (активное изучение, несколько свох сайтов)</p>
+                <p>Bootstrap</p>
+                <p>jQuery</p>
+                <p>Django REST framework (написал пару простых API для своих проектов)</p>
+                <hr>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <strong>Остальное:</strong>
+            </div>
+            <div class="col-md-8">
+                <p>Linux, Git, MacOS, HTTP, HTML, CSS, ORM</p>
+                <hr>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <strong>О себе:</strong>
+            </div>
+            <div class="col-md-8">
+                <p>Нравится заниматься разработкой сайтов. В основном ориентируюсь на back-end, но есть навыки и во front-end.
+                    В связке с Django создал несколько своих приложений, включая свой личный сайт-блог с личным кабинетом.
+                    Работаю с БД почти всегда через ORM. Читаю профессиональную англоязычную литературу.
+                    Получил высшее образование в РГУ Нефти и Газа им. И.М.Губкина на кафедре АСУ ТП. Занимался
+                    различными танцами на протяжении 6 лет.</p>
+                <hr>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

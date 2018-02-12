@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Cat
+from .models import Cat, Post
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -39,13 +39,21 @@ class CatCreationForm(forms.ModelForm):
                   'years',
                   'breed',
                   'img'}
+        def save(self, commit=True):
+            cat = super(RegistrationForm, self).save(commit=False)
+            cat.name = cleaned_data['name']
+            cat.years = cleaned_data['years']
+            cat.breed = cleaned_data['breed']
+            cat.img = cleaned_data['img']
 
+            if commit:
+                cat.save()
 
-        # widgets = {
-        #     'name': forms.TextInput(attrs={'placeholder': 'Новое имя'}),
-        #     'breed': forms.TextInput(attrs={'placeholder': 'Новая порода'}),
-        #     'img': forms.TextInput(attrs={'placeholder': 'URL'}),
-        #
-        # }
+            return cat
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = {'name','email','subject','message'}
 
 

@@ -7,6 +7,7 @@ from rest_framework import routers
 
 app_name = 'blogapp'
 
+#Почти так же, как и на руби.
 router = routers.DefaultRouter()
 router.register(r'cat', CatsViewSet, base_name='api')
 
@@ -15,8 +16,10 @@ urlpatterns = [
     url(r'^reg/$', views.register, name='register'),
     url(r'^cats/$', views.cats, name='cats'),
     url(r'^culc/$', views.culc, name='culc'),
+    url(r'^resume/$', views.resume, name='resume'),
     url(r'^chat/$', views.chat, name='chat'),
-    url(r'^delete/(?P<cat_id>[0-9]+)$', views.delete, name='delete'),
+    url(r'^addCat/$', views.add, name='add'),
+    url(r'^cats/delete/(?P<cat_id>[0-9]+)$', views.delete, name='delete'),
     url(r'^edit/(?P<cat_id>[0-9]+)$', views.edit, name='edit'),
     url(r'^bot/$', views.bot, name='bot'),
     url(r'^api/', include(router.urls)),

@@ -1,9 +1,41 @@
 {% extends 'base.html' %}
 {% block head %}
-{% endblock %}
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+{%  endblock%}
 {% block body %}
-<div>
-    <div class="container">
+{% load static %}
+<!-- Форма добавления нового Кота-->
+    <div id="addCatForm">
+        <div class="row">
+            <div class="col-sm-12 col-md-4"></div>
+            <div class="col-md-4 col-sm-12">
+                <div class="cat_form">
+                    <img class="cat_img" src="{% static 'images/cat.png' %}">
+                    <br>
+                    <form method="POST" class="cat_info">
+                        {% csrf_token %}
+                        <p> {{ form.name }}  Имя кота</p>
+                        <p>{{ form.years }}  Возраст</p>
+                        <p> {{ form.breed }} Порода </p>
+                        <p> {{ form.img }} URL картинки</p>
+                        <button type="submit" class="btn btn-success">Сохранить</button>
+                        <a id='cansel' class="btn btn-danger">Отменить</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Только зарегестрированым можно создавать кота-->
+<div class="container">
+    {% if user.is_authenticated %}
+    <div class="divCenter"><input type="button" id="addCat" value="Создать кота" class="btn btn-success"></div>
+    {% else %}
+    <div class="divCenter"><a class="btn btn-success" href="{% url 'blogapp:login' %}">Создать кота</a></div>
+    {% endif %}
         <div class="row">
         {% for cat in cats %}
         <div class="col-md-4 col-sm-12">
@@ -14,15 +46,17 @@
                         <p><strong>Имя кота: </strong>{{cat.name}}</p>
                         <p><strong>Сколько лет:  </strong>{{cat.years}}</p>
                         <p><strong>Порода:  </strong>{{cat.breed}}</p>
+                        <p><strong>Владелец:  </strong>{{cat.user}}</p>
+                        {% if current_user == cat.user %}
                         <a href="../edit/{{cat.id}}" class="btn btn-primary">Редактировать</a>
                         <a href='delete/{{cat.id}}' class="btn btn-danger">Удалить</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
-</div>
 
 
 {% endblock %}
